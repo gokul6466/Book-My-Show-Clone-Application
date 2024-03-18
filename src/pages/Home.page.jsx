@@ -17,11 +17,31 @@ const HomePage = ()=>{
 useEffect(()=>{
     const requestTopRatedMovies = async () => {
         const getTopRatedMovies = await axios.get(
-            "https://api.themoviedb.org/3/movie/top_rated?api_key=8cf42451638ab8be2b0ec80366b79445"
+            "/movie/top_rated"
         );
         setRecommendedMovies(getTopRatedMovies .data.results);
     };
     requestTopRatedMovies();
+},[]);
+
+useEffect(()=>{
+    const requestPremierMovies = async () =>{
+        const getPremierMovies = await axios.get(
+            "/movie/upcoming"
+        );
+        setPremiereMovies(getPremierMovies.data.results);
+    };
+    requestPremierMovies();
+},[]);
+
+useEffect(()=>{
+    const requestOnlineStreamEvents = async () =>{
+        const getOnlineStreamEvents = await axios.get(
+            "/tv/popular"
+        );
+        setOnlineStreamEvents(getOnlineStreamEvents.data.results);
+    };
+    requestOnlineStreamEvents();
 },[]);
 
 
@@ -64,7 +84,7 @@ useEffect(()=>{
             title="Online streaming Events"
             subtitle="Online stream events"
             posters={onlinestreamevents}
-            isDark={true}
+            isDark={false}
         />
         </div>
     
