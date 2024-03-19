@@ -85,3 +85,7 @@ https://api.themoviedb.org/3/movie/top_rated?api_key=8cf42451638ab8be2b0ec80366b
 https://api.themoviedb.org/3/movie/{movie_278}/credits?api_key=8cf42451638ab8be2b0ec80366b79445
 
 https://api.themoviedb.org/3/movie/movie_id/credit?api_key=8cf42451638ab8be2b0ec80366b79445
+
+
+moviepage
+cast component

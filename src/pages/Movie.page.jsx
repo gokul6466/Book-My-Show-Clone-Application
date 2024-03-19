@@ -6,6 +6,7 @@ import { MovieContext } from "../Context/Movie.Context";
 import {FaCcVisa,FaCcApplePay} from "react-icons/fa";
 import Slider from "react-slick";
 import PosterSlider from "../Components/PosterSlider/PosterSlider.Component";
+import MovieHero from "../Components/MovieHero/MovieHero.Component";
 
 
 const MoviePage = ()=>{
@@ -53,9 +54,12 @@ const MoviePage = ()=>{
 
    const settings = {};
 
+   
+
 
    return (
     <>
+    <MovieHero/>
     <div className="my-12 container px-4 lg-ml-20 lg:w-2/1">
         <div className="flex flex-col items-start gap-3">
             <h1 className="text-gray-800 font-bold gap-3 text-2xl">
