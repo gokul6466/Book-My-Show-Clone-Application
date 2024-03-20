@@ -7,6 +7,7 @@ import {FaCcVisa,FaCcApplePay} from "react-icons/fa";
 import Slider from "react-slick";
 import PosterSlider from "../Components/PosterSlider/PosterSlider.Component";
 import MovieHero from "../Components/MovieHero/MovieHero.Component";
+import Cast from "../Components/Cast/Cast.components";
 
 
 const MoviePage = ()=>{
@@ -50,7 +51,38 @@ const MoviePage = ()=>{
     requestMovie();
    },[id]);
 
-   const settingsCast={};
+   const settingsCast={
+    infinite:false,
+    speed:500,
+    slidesToShow:7,
+    slidesToScroll:4,
+    initialSlide:0,
+    responsive:[
+        {
+            breakpoint:1024,
+            settings:{
+                slidesToShow:5,
+                slidesToScroll:4,
+            },
+        },
+        {
+            breakpoint:600,
+            settings:{
+                slidesToShow:3,
+                slidesToScroll:3,
+                initialSlide:1,
+            },
+        },
+        {
+            breakpoint:480,
+            settings:{
+                slidesToShow:2,
+                slidesToScroll:2,
+                initialSlide:2,
+            },
+        },
+    ],
+   };
 
    const settings = {};
 
@@ -109,7 +141,9 @@ const MoviePage = ()=>{
         </div>
 
 
-            {/* cast Sliders */}
+            
+
+             {/* recommended movies Slider */}
             <div className="my-8">
                 <PosterSlider
                 config={settings}
@@ -118,14 +152,36 @@ const MoviePage = ()=>{
                 isDark={false}
                 />
             </div>
-            {/* recommended movies Slider */}
+            
             <div className="my-8">
                 <hr/>
             </div>
+
+             {/* cast Sliders */}
+             <div className="my-8">
+                <h2 className="text-gray-800 font-bold text-2xl mb-4">
+                    Cast and Crew
+                </h2>
+                <Slider {...settingsCast}>
+                   {cast.map((castData)=>(
+                    <Cast 
+                    
+                    image={castData.profile_path}
+                    castName={castData.original_name}
+                    role={castData.character}
+                    />
+                   ))}
+                      
+                </Slider>
+             </div>
+             <div className="my-8">
+                <hr/>
+             </div>
+
             <PosterSlider
             config={settings}
-            title="BMS XCLUSIVE Movies"
-            posters={recommendedMovies}
+            title="Similar Movies"
+            posters={similarMovies}
             isDark={false}
             />
 
